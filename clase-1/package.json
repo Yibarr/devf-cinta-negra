@@ -1,0 +1,19 @@
+{
+  "name": "cinta-negra-clases",
+  "version": "1.0.0",
+  "description": "Clase 1 de cinta negra.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "axios",
+    "request",
+    "http"
+  ],
+  "author": "Yael Ibarra",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}
