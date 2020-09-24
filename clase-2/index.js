@@ -18,9 +18,9 @@ const reqDate = (req, res, next) => {
 
 
 app.use(express.json({ extended: true }))
-
-
 app.use(reqDate)
+
+
 
 
 app.get('/', (request, response) => {
