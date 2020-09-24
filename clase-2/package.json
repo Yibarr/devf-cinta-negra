@@ -1,0 +1,33 @@
+{
+  "name": "clase-2",
+  "version": "1.0.0",
+  "description": "Clase dos de cinta negra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yibarr/devf-cinta-negra.git"
+  },
+  "keywords": [
+    "express",
+    "rest",
+    "api"
+  ],
+  "author": "Yael Ibarra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yibarr/devf-cinta-negra/issues"
+  },
+  "homepage": "https://github.com/Yibarr/devf-cinta-negra#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
