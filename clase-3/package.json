@@ -1,0 +1,33 @@
+{
+  "name": "clase-3",
+  "version": "1.0.0",
+  "description": "Clase 3 de cinta negra.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yibarr/devf-cinta-negra.git"
+  },
+  "keywords": [
+    "mongo",
+    "express"
+  ],
+  "author": "Yael Ibarra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yibarr/devf-cinta-negra/issues"
+  },
+  "homepage": "https://github.com/Yibarr/devf-cinta-negra#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
