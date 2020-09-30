@@ -1,13 +1,16 @@
-require('dotenv').config()
-require('./mongoClient/index')
-const express = require('express')
+import './env.js'
+import express from 'express'
+import './mongoClient/index.js'
+import errorHandler from './utils/errorHandler.js'
+import ProductRouter from './routes/ProductRoutes.js'
+import TicketRouter from './routes/TicketRoutes.js'
 const api = express()
 const PORT = process.env.PORT || 4000
 
 api.use(express.json({ extended: true }))
-
-api.use(require('./routes/ProductRoutes'))
-api.use(require('./routes/TicketRoutes'))
+api.use('/products', ProductRouter)
+api.use('/tickets', TicketRouter)
+api.use(errorHandler)
 
 api.listen(PORT, ()=> console.log('Server initialized...'))
 

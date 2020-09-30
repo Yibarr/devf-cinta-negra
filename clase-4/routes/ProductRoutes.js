@@ -1,9 +1,9 @@
-const express = require('express')
+import express from 'express'
 const router = express.Router()
 
-const Products = require('../models/Products')
+import Products from '../models/Products.js'
 
-router.post('/products', async (req, res, next) => {
+router.post('/create', async (req, res, next) => {
   try {
     const { name, price, stock } = req.body
     const criteria = await Products.exists({ name: name })
@@ -20,12 +20,15 @@ router.post('/products', async (req, res, next) => {
     } else {
       throw new Error('Ya existe ese product')
     }
-  } catch (error) {
     res.send({ message: error.message, body: req.body }).status(201)
+  } catch (error) {
     next(error)
   }
 })
 
 
 
-module.exports = router
+
+
+
+export default router

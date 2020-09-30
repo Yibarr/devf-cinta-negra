@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const ticketSchema = new mongoose.Schema({
   subtotal: {
@@ -13,4 +13,4 @@ const ticketSchema = new mongoose.Schema({
 
 const Tickets = mongoose.model('Tickets', ticketSchema)
 
-module.exports = Tickets
+export default Tickets

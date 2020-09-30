@@ -1,31 +1,59 @@
-const express = require('express')
+import express from 'express'
+import Products from '../models/Products.js'
 const router = express.Router()
 
-const Tickets = require('../models/Tickets.js')
+import Tickets from '../models/Tickets.js'
 
 
-router.post('/tickets', async (req, res) => {
+router.post('/create', async (req, res, next) => {
   try {
-    const newTicket = new Tickets(req.body)
-    const savedDoc = await newTicket
+    const { products } = req.body
+
+    if(!products) throw new Error('No products in the request body')
+
+    const productsList = await Products
+      .find(
+        { _id: { $in: products } }
+      )
+      
+    const subtotal = productsList
+      .reduce((acc, product) => {
+        acc += product.price
+        return acc
+      }, 0)
+    
+    const newTicket = new Tickets(
+      {
+        subtotal: subtotal,
+        products: products
+      }
+    )
+      
+    const ticket = await newTicket
       .save()
-    res.send({ 'message': 'Se ha creado un ticket', doc: savedDoc }).status(201) 
+  
+    res
+      .status(201) 
+      .json({
+        message: 'Se ha creado un ticket',
+        ticket: ticket
+      })
   } catch (error) {
-    res.send({ 'message': error }).status(400) 
+    next(error);
   }
 })
 
-router.get('/tickets/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const tickets = await Tickets
       .findById(req.params.id)
       .populate('products')
     res.json({ message: 'Petición exitosa',  tickets: tickets }).status(201)
   } catch (error) {
-    res.json({message: error.message}).status(400)
+    next(error)
   }  
 
 })
 
 
-module.exports = router
+export default router
